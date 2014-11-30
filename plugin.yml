@@ -1,0 +1,8 @@
+name: CustomEntitiesAPI
+main: me.dablakbandit.customentitiesapi.CustomEntitiesAPI
+author: Dablakbandit
+version: 1.5
+commands:
+  customentitiesapi:
+    permission: customentitiesapi.test
+    aliases: ces

@@ -1,2 +1,2 @@
-CustomEntitiesAPI1.8
-====================
+CustomEntitiesAPI
+=================
