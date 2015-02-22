@@ -9,14 +9,13 @@ import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.plugin.java.JavaPlugin;
 
-public class CusstomEntitiesConfiguration
-{
+public class CustomEntitiesConfiguration{
 	private JavaPlugin plugin;
 	private FileConfiguration conf = null;
 	private File file = null;
 	private String fname = null;
 
-	public CusstomEntitiesConfiguration(JavaPlugin plugin, String filename)
+	public CustomEntitiesConfiguration(JavaPlugin plugin, String filename)
 	{
 		this.plugin = plugin;
 		this.fname = filename;

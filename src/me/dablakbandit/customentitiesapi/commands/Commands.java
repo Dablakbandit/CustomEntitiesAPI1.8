@@ -2,10 +2,15 @@ package me.dablakbandit.customentitiesapi.commands;
 
 import me.dablakbandit.customentitiesapi.entities.*;
 
+import org.bukkit.ChatColor;
+import org.bukkit.Location;
+import org.bukkit.Material;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
+import org.bukkit.entity.Zombie;
+import org.bukkit.inventory.ItemStack;
 
 public class Commands implements CommandExecutor{
 
@@ -19,9 +24,28 @@ public class Commands implements CommandExecutor{
 			s2.setGoalSelectorDefaultPathfinderGoals();
 			s2.setDamageable(false);*/
 			//Player player = (Player)s;
-			CustomEntityRabbit cer = CustomEntities.getNewCustomEntityRabbit(((Player)s).getLocation());
-			cer.setUnableToMove();
-			cer.setUnpushable();
+			Location location = ((Player)s).getLocation();
+			CustomEntityZombie cez = CustomEntities.getNewCustomEntityZombie(location);
+	        cez.removeGoalSelectorPathfinderGoalAll();
+	        cez.newGoalSelectorPathfinderGoalRandomLookaroundDefault();
+	        cez.setUnpushable();
+	        cez.setUnableToMove();
+	        cez.setUndamageable();
+
+	        Zombie zombie = (Zombie)cez.getBukkitEntity();
+	        zombie.setCustomName(ChatColor.YELLOW + "" + ChatColor.BOLD + "Test");
+	        zombie.setCustomNameVisible(true);
+	        zombie.setMaxHealth(1000.0D);
+	        zombie.setHealth(1000.0D);
+	        zombie.setCanPickupItems(false);
+	        zombie.setBaby(false);
+	        zombie.setVillager(false);
+	        zombie.setRemoveWhenFarAway(false);
+	        zombie.getEquipment().setHelmet(new ItemStack(Material.GOLD_HELMET, 1));
+	        zombie.getEquipment().setChestplate(new ItemStack(Material.GOLD_CHESTPLATE, 1));
+	        zombie.getEquipment().setLeggings(new ItemStack(Material.GOLD_LEGGINGS, 1));
+	        zombie.getEquipment().setBoots(new ItemStack(Material.GOLD_BOOTS, 1));
+	        
 		}
 		return false;
 	}
