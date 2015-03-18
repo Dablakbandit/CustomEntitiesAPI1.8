@@ -32,8 +32,25 @@ public class Commands implements CommandExecutor{
 			cer.setUnpushable();
 			
 			
-			/*CustomEntityZombie cez = CustomEntities.getNewCustomEntityZombie(location);
-	        cez.removeGoalSelectorPathfinderGoalAll();
+			CustomEntityZombie cez = CustomEntities.getNewCustomEntityZombie(location);
+            Zombie z = (Zombie) cez.getBukkitEntity();
+
+            if (z.isVillager()) z.setVillager(false);
+            z.getEquipment().clear();
+            z.setRemoveWhenFarAway(true);
+            z.setCanPickupItems(false);
+
+            cez.setUnableToMove();
+            cez.newGoalSelectorPathfinderGoalMeleeAttack("EntityHuman", 1.0D, false);
+            cez.newGoalSelectorPathfinderGoalRandomStrollDefault();
+            cez.newGoalSelectorPathfinderGoalRandomLookaroundDefault();
+            cez.newGoalSelectorPathfinderGoalLookAtPlayerDefault();
+            cez.removeGoalSelectorPathfinderGoalFleeSun();
+            cez.removeGoalSelectorPathfinderGoalRestrictSun();
+            cez.setIAttribute(CustomIAttribute.MOVEMENT_SPEED, 0.39D);
+            cez.setIAttribute(CustomIAttribute.FOLLOW_RANGE, 40.0D);
+            cez.setIAttribute(CustomIAttribute.KNOCKBACK_RESISTANCE, 0.0D);
+	        /*cez.removeGoalSelectorPathfinderGoalAll();
 	        cez.newGoalSelectorPathfinderGoalRandomLookaroundDefault();
 	        cez.setUnpushable();
 	        cez.setUnableToMove();

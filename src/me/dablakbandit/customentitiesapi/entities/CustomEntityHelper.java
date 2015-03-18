@@ -40,6 +40,17 @@ public class CustomEntityHelper {
 		}
 		return clazz;
 	}
+	
+	public static boolean NMSClassExists(String className) {
+		String fullName = "net.minecraft.server." + getVersion() + className;
+		try {
+			Class.forName(fullName);
+			return true;
+		} catch (Exception e) {
+			
+		}
+		return false;
+	}
 
 	public static Class<?> getOBCClass(String className) {
 		String fullName = "org.bukkit.craftbukkit." + getVersion() + className;
@@ -82,6 +93,21 @@ public class CustomEntityHelper {
 				return m;
 			}
 		return null;
+	}
+	
+	public static Class<?> getInnerClass(Class<?> c, String className){
+		Class<?> clazz = null;
+		try {
+			for(Class<?> cl : c.getDeclaredClasses()){
+				if(cl.getSimpleName().equals(className)){
+					clazz = cl;
+					break;
+				}
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return clazz;
 	}
 
 	public static boolean ClassListEqual(Class<?>[] l1, Class<?>[] l2) {

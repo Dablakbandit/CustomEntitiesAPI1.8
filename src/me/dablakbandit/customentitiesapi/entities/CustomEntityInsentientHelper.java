@@ -132,19 +132,20 @@ public class CustomEntityInsentientHelper extends CustomEntityLivingHelper {
 		removeGoalSelectorPathFinderGoal(insentient, "PathfinderGoalFloat");
 	}
 
+	public static Class<?> pathfindergoalselector = getNMSClass("PathfinderGoalSelector");
+	public static Class<?> pathfindergoalselectoritem = NMSClassExists("PathfinderGoalSelectorItem") ? getNMSClass("PathfinderGoalSelectorItem") : getInnerClass(pathfindergoalselector, "PathfinderGoalSelectorItem");
+	
 	public static void removeGoalSelectorPathFinderGoal(Object insentient,
 			String string) {
 		try {
 			Object goalselector = getGoalSelector(insentient);
 
-			Class<?> pathfindergoalselector = goalselector.getClass();
 
 			Field f = pathfindergoalselector.getDeclaredField("b");
 			f.setAccessible(true);
 
 			List b = (List) f.get(goalselector);
 
-			Class<?> pathfindergoalselectoritem = getNMSClass("PathfinderGoalSelectorItem");
 			Field f1 = pathfindergoalselectoritem.getDeclaredField("a");
 			f1.setAccessible(true);
 
@@ -171,7 +172,6 @@ public class CustomEntityInsentientHelper extends CustomEntityLivingHelper {
 
 				List b = (List) f.get(goalselector);
 
-				Class<?> pathfindergoalselectoritem = getNMSClass("PathfinderGoalSelectorItem");
 				Field f1 = pathfindergoalselectoritem.getDeclaredField("a");
 				f1.setAccessible(true);
 
@@ -188,7 +188,6 @@ public class CustomEntityInsentientHelper extends CustomEntityLivingHelper {
 
 				List b = (List) f.get(goalselector);
 
-				Class<?> pathfindergoalselectoritem = getNMSClass("PathfinderGoalSelectorItem");
 				Field f1 = pathfindergoalselectoritem.getDeclaredField("a");
 				f1.setAccessible(true);
 
