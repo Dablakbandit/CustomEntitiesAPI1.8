@@ -332,4 +332,27 @@ public class CustomEntityInsentientHelper extends CustomEntityLivingHelper {
 			Object insentient) {
 		removeGoalSelectorPathFinderGoal(insentient, "PathfinderGoalInteract");
 	}
+	
+	public static void newGoalSelectorPathfinderGoalLeapAtTarget(Object insentient, float f) {
+		try {
+			Class<?> entityinsentient = getNMSClass("EntityInsentient");
+			Class<?> pathfindergoal = getNMSClass("PathfinderGoal");
+
+			Object goalselector = getGoalSelector(insentient);
+
+			Class<?> pathfindergoalleapattarget = getNMSClass("PathfinderGoalLeapAtTarget");
+			Object o = pathfindergoalleapattarget.getConstructor(entityinsentient, float.class).newInstance(
+					entityinsentient.cast(insentient), f);
+
+			goalselector.getClass().getMethod("a", int.class, pathfindergoal)
+					.invoke(goalselector, 7, o);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
+	public static void removeGoalSelectorPathfinderGoalLeapAtTarget(
+			Object insentient) {
+		removeGoalSelectorPathFinderGoal(insentient, "PathfinderGoalLeapAtTarget");
+	}
 }

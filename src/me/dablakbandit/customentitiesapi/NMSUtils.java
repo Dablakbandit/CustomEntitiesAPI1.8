@@ -23,6 +23,21 @@ public class NMSUtils{
 		}
 		return clazz;
 	}
+	
+	public static Class<?> getInnerClass(Class<?> c, String className){
+		Class<?> clazz = null;
+		try {
+			for(Class<?> cl : c.getDeclaredClasses()){
+				if(cl.getSimpleName().equals(className)){
+					clazz = cl;
+					break;
+				}
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return clazz;
+	}
 
 	public static Class<?> getOBCClass(String className) {
 		String fullName = "org.bukkit.craftbukkit." + getVersion() + className;

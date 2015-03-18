@@ -6,6 +6,7 @@ import ja.CtField;
 import ja.CtNewMethod;
 import me.dablakbandit.customentitiesapi.CustomEntitiesAPI;
 import me.dablakbandit.customentitiesapi.NMSUtils;
+
 import org.bukkit.Location;
 import org.bukkit.entity.Entity;
 
@@ -107,5 +108,29 @@ public class CustomEntityCow extends CustomEntityAnimal {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+	}
+	
+	public void newGoalSelectorPathfinderGoalPanicDefault(){
+		newGoalSelectorPathfinderGoalPanic(2.0D);
+	}
+	
+	public void newGoalSelectorPathfinderGoalBreedDefault(){
+		newGoalSelectorPathfinderGoalBreed(1.0D);
+	}
+	
+	public void newGoalSelectorPathfinderGoalTemptDefault(){
+		newGoalSelectorPathfinderGoalTempt(1.25D, "WHEAT", false);
+	}
+	
+	public void newGoalSelectorPathfinderGoalFollowParentDefault(){
+		newGoalSelectorPathfinderGoalFollowParent(1.25D);
+	}
+	
+	public void newGoalSelectorPathfinderGoalRandomStrollDefault(){
+		newGoalSelectorPathfinderGoalRandomStroll(1.0D);
+	}
+	
+	public void newGoalSelectorPathfinderGoalLookAtPlayerDefault(){
+		newGoalSelectorPathfinderGoalLookAtPlayer(EntityName.ENTITYHUMAN, 6.0F);
 	}
 }

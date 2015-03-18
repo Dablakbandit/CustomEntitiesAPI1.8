@@ -111,4 +111,28 @@ public class CustomEntityChicken extends CustomEntityAnimal {
 			e.printStackTrace();
 		}
 	}
+	
+	public void newGoalSelectorPathfinderGoalPanicDefault(){
+		newGoalSelectorPathfinderGoalPanic(1.4D);
+	}
+	
+	public void newGoalSelectorPathfinderGoalBreedDefault(){
+		newGoalSelectorPathfinderGoalBreed(1.0D);
+	}
+	
+	public void newGoalSelectorPathfinderGoalTemptDefault(){
+		newGoalSelectorPathfinderGoalTempt(1.0D, "WHEAT_SEEDS", false);
+	}
+	
+	public void newGoalSelectorPathfinderGoalFollowParentDefault(){
+		newGoalSelectorPathfinderGoalFollowParent(1.1D);
+	}
+	
+	public void newGoalSelectorPathfinderGoalRandomStrollDefault(){
+		newGoalSelectorPathfinderGoalRandomStroll(1.0D);
+	}
+	
+	public void newGoalSelectorPathfinderGoalLookAtPlayerDefault(){
+		newGoalSelectorPathfinderGoalLookAtPlayer(EntityName.ENTITYHUMAN, 6.0F);
+	}
 }

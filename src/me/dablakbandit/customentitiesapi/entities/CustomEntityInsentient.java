@@ -204,6 +204,23 @@ public abstract class CustomEntityInsentient extends CustomEntityLiving {
 	public void newGoalSelectorPathfinderGoalInteract(float f) {
 		newGoalSelectorPathfinderGoalInteract(f, 0.02F);
 	}
+	
+	public void newGoalSelectorPathfinderGoalLeapAtTarget(float f){
+		try{
+			helper.getMethod("newGoalSelectorPathfinderGoalLeapAtTarget", Object.class, double.class).invoke(null, entity, f);
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+	}
+	
+	public void removeGoalSelectorPathfinderGoalLeapAtTarget() {
+		try {
+			helper.getMethod("removeGoalSelectorPathfinderGoalLeapAtTarget",
+					Object.class).invoke(null, entity);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
 
 	public void removeGoalSelectorPathfinderGoalInteract(Object insentient) {
 		try {

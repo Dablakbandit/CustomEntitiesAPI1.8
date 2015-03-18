@@ -25,8 +25,6 @@ public class CustomEntityZombie extends CustomEntityMonster {
 		this();
 		a();
 		spawnEntity(location);
-		removeGoalSelectorPathfinderGoalMeleeAttack();
-		newGoalSelectorPathfinderGoalMeleeAttackDefault();
 	}
 
 	public CustomEntityZombie(Entity e) {

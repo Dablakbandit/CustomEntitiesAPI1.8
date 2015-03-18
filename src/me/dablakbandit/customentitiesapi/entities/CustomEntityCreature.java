@@ -219,7 +219,8 @@ public abstract class CustomEntityCreature extends CustomEntityInsentient {
 		}
 	}
 
-	public void newGoalSelectorPathfinderGoalAvoidPlayer(float f, double d,
+	//No longer included
+	/*public void newGoalSelectorPathfinderGoalAvoidPlayer(float f, double d,
 			double d0) {
 		newGoalSelectorPathfinderGoalAvoidPlayer(EntityName.ENTITYPLAYER, f, d,
 				d0);
@@ -232,7 +233,7 @@ public abstract class CustomEntityCreature extends CustomEntityInsentient {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-	}
+	}*/
 
 	public void newGoalSelectorPathfinderGoalMoveIndoorsDefault() {
 		try {

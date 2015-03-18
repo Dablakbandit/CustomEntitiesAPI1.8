@@ -24,8 +24,15 @@ public class Commands implements CommandExecutor{
 			s2.setGoalSelectorDefaultPathfinderGoals();
 			s2.setDamageable(false);*/
 			//Player player = (Player)s;
+			
+			
 			Location location = ((Player)s).getLocation();
-			CustomEntityZombie cez = CustomEntities.getNewCustomEntityZombie(location);
+			CustomEntityRabbit cer = CustomEntities.getNewCustomEntityRabbit(location);
+			cer.setUnableToMove();
+			cer.setUnpushable();
+			
+			
+			/*CustomEntityZombie cez = CustomEntities.getNewCustomEntityZombie(location);
 	        cez.removeGoalSelectorPathfinderGoalAll();
 	        cez.newGoalSelectorPathfinderGoalRandomLookaroundDefault();
 	        cez.setUnpushable();
@@ -44,7 +51,7 @@ public class Commands implements CommandExecutor{
 	        zombie.getEquipment().setHelmet(new ItemStack(Material.GOLD_HELMET, 1));
 	        zombie.getEquipment().setChestplate(new ItemStack(Material.GOLD_CHESTPLATE, 1));
 	        zombie.getEquipment().setLeggings(new ItemStack(Material.GOLD_LEGGINGS, 1));
-	        zombie.getEquipment().setBoots(new ItemStack(Material.GOLD_BOOTS, 1));
+	        zombie.getEquipment().setBoots(new ItemStack(Material.GOLD_BOOTS, 1));*/
 	        
 		}
 		return false;

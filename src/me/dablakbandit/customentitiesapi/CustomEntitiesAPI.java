@@ -49,7 +49,12 @@ public class CustomEntitiesAPI extends JavaPlugin{
 			method.setAccessible(true);
 			method.invoke(null, test, name, id);
 			Class<?> biomebase = NMSUtils.getNMSClass("BiomeBase");
-			Class<?> biomemeta = NMSUtils.getNMSClass("BiomeMeta");
+			Class<?> biomemeta;
+			try{
+				biomemeta = Class.forName("net.minecraft.server." + NMSUtils.getVersion() + "BiomeMeta");
+			}catch(Exception e){
+				biomemeta = NMSUtils.getInnerClass(biomebase, "BiomeMeta");
+			}
 			for (Field f : biomebase.getDeclaredFields()) {
 				if (f.getType().getSimpleName().equals(biomebase.getSimpleName())) {
 					if (f.get(null) != null) {

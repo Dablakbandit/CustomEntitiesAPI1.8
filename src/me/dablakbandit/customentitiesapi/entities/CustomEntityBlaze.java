@@ -6,6 +6,7 @@ import ja.CtField;
 import ja.CtNewMethod;
 import me.dablakbandit.customentitiesapi.CustomEntitiesAPI;
 import me.dablakbandit.customentitiesapi.NMSUtils;
+
 import org.bukkit.Location;
 import org.bukkit.entity.Entity;
 
@@ -109,5 +110,35 @@ public class CustomEntityBlaze extends CustomEntityMonster {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+	}
+	
+	public void newGoalSelectorPathfinderGoalBlazeFireballDefault() {
+		try {
+			helper.getMethod("newGoalSelectorPathfinderBlazeFireball", Object.class)
+					.invoke(null, entity);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+	public void removeGoalSelectorPathfinderGoalBlazeFireball() {
+		try {
+			helper.getMethod("removeGoalSelectorPathfinderBlazeFireball",
+					Object.class).invoke(null, entity);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
+	public void newGoalSelectorPathfinderGoalMoveTowardsRestrictionDefault() {
+		newGoalSelectorPathfinderGoalMoveTowardsRestriction(1.0D);
+	}
+	
+	public void newGoalSelectorPathfinderGoalRandomStrollDefault(){
+		newGoalSelectorPathfinderGoalRandomStroll(1.0D);
+	}
+	
+	public void newGoalSelectorPathfinderGoalLookAtPlayerDefault(){
+		newGoalSelectorPathfinderGoalLookAtPlayer(EntityName.ENTITYHUMAN, 8.0F);
 	}
 }
