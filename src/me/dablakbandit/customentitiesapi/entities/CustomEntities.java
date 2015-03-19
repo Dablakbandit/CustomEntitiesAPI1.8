@@ -14,7 +14,7 @@ public class CustomEntities {
 		
 		try{
 			Class<?> entity = NMSUtils.getNMSClass("Entity");
-			entity.getMethod("a", entity, boolean.class).invoke(entity.cast(onew), entity.cast(oold), true);
+			entity.getMethod("n", entity).invoke(entity.cast(onew), entity.cast(oold));
 		}catch(Exception e){
 			e.printStackTrace();
 		}
